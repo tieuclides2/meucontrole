@@ -1,13 +1,13 @@
 import './App.css';
 
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home/Home';
-import Pagamento from './pages/Pagamento/Pagamento';
-import Recebimento from './pages/Recebimento/Recebimento';
+
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Teste from './pages/Teste/Teste';
+import Contas from './pages/Contas/Contas';
 
 function App() {
   return (
@@ -17,8 +17,7 @@ function App() {
         <div className="container">
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/pagamento' element={<Pagamento />} />
-          <Route path='/recebimento' element={<Recebimento />} />
+          <Route path='/contas' element={<Contas/>} />
           <Route path='/teste' element={<Teste />} />
         </Routes>
         </div>

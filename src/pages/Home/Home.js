@@ -11,6 +11,7 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 
+
 import { useState, useEffect } from 'react'
 
 
@@ -21,8 +22,7 @@ const Home = () => {
   const [contas, setContas] = useState(() => {
     const savedContas = localStorage.getItem('contas');
     return savedContas ? JSON.parse(savedContas) : [];
-  });
-  
+  });  
 
   const history = useNavigate()
 
@@ -36,31 +36,34 @@ const Home = () => {
     const dados = {
       conta,
       valor,
-      tipo,      
+      tipo,
+      paga: false,      
     };
 
-    setContas([...contas, dados]);  
+    setContas([dados, ...contas]);  
 
     //limpar inputs
     setConta('')
     setValor('')
 
-    console.log(dados)
+    history('/contas', {state: {contas: [...contas, dados]}});
+
+    console.log(dados)    
 
   };
 
-  const faturas = () => {
-    if(tipo === 'despesa') {
-      history('/pagamento', { state: { contas } });
-    } else if (tipo === 'receita'){ 
-      history('/recebimento', { state: { contas } });
-    }
-  }
+  // const faturas = () => {
+  //   if(tipo === 'despesa') {
+  //     history('/contas', { state: { contas } });
+  //   } else if (tipo === 'receita'){ 
+  //     history('/contas', { state: { contas } });
+  //   }
+  // }
 
   return (
 
     <div className={styles.contas}>
-      <p>Contas</p>
+      <p>Lançamentos</p>
       <form onSubmit={handleSubmit}>
         <label>
           <span>Nome do titulo</span>
@@ -95,11 +98,9 @@ const Home = () => {
           <Button variant="contained" type='submit'>Lançar</Button>
         </FormControl>
       </form>
-      <Button variant="contained" onClick={faturas} style={{ marginTop: '10px' }}>
+      {/* <Button variant="contained" onClick={faturas} style={{ marginTop: '10px' }}>
         Ver Contas
-      </Button>
-
-
+      </Button> */}
     </div>
   )
 }

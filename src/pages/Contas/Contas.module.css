@@ -1,0 +1,23 @@
+.container {
+    padding: 20px;
+  }
+  
+  .title {
+    text-align: center;
+  }
+  
+  .flexContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .despesasContainer,
+  .receitasContainer {
+    width: 48%; /* Ajuste a largura dos contêineres conforme necessário */
+  }
+  
+  .card {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  

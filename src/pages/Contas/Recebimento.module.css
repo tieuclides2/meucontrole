@@ -1,0 +1,12 @@
+.card_recebimento {
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-decoration: none;
+    
+  }
+
+.no_bullets {
+    list-style-type: none;
+    padding: 0;
+  }
